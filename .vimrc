@@ -1,5 +1,4 @@
 " An example for a vimrc file.
-"
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
@@ -8,6 +7,13 @@ endif
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+
+" set maps
+map <C-a> :NERDTreeToggle<CR>
+map <C-c> :CSScomb<CR>
+map <silent><leader>r :RRB<CR>
+noremap! <C-f> <Right>
+noremap! <C-b> <Left>
 
 set guifont=Monaco:h15
 execute pathogen#infect()
@@ -29,6 +35,10 @@ function LessToCss()
 endfunction
 autocmd BufWritePost,FileWritePost *.less call LessToCss()
 
+" refresh in browser from vim
+let g:RefreshRunningBrowserDefault = 'chrome'
+let g:RefreshRunningBrowserReturnFocus = 0
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -47,11 +57,6 @@ set incsearch		" do incremental searching
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
-
-" set maps
-map <C-a> :NERDTreeToggle<CR>
-noremap! <C-f> <Right>
-noremap! <C-b> <Left>
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
