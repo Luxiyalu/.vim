@@ -20,6 +20,15 @@ set softtabstop=4
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
 filetype plugin on
 
+" autocompile less files
+function LessToCss()
+  let lessinput=shellescape(expand('%:p'))
+  let cssoutput=shellescape(expand('%:r'))
+  let command="silent !lessc " . lessinput . " > " . cssoutput . ".css"
+  execute command
+endfunction
+autocmd BufWritePost,FileWritePost *.less call LessToCss()
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -41,6 +50,8 @@ map Q gq
 
 " set maps
 map <C-a> :NERDTreeToggle<CR>
+noremap! <C-f> <Right>
+noremap! <C-b> <Left>
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
