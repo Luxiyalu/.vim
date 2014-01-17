@@ -284,7 +284,7 @@ let s:delimiterMap = {
     \ 'pdf': { 'left': '% ' },
     \ 'perl': { 'left': '# ' },
     \ 'pfmain': { 'left': '//' },
-    \ 'php': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
+    \ 'php': { 'left': '// ', 'leftAlt': '/*', 'rightAlt': '*/' },
     \ 'pic': { 'left': '; ' },
     \ 'pike': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
     \ 'pilrc': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
