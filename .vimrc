@@ -8,20 +8,27 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " original repos on GitHub
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-rails.git'
 Bundle 'https://github.com/Valloric/YouCompleteMe.git'
-" vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-" non-GitHub repos
-Bundle 'git://git.wincent.com/command-t.git'
-" Git repos on your local machine
-" Bundle 'file:///Users/gmarik/path/to/plugin'
+Bundle 'https://github.com/jiangmiao/auto-pairs'
+Bundle 'https://github.com/tpope/vim-surround'
+Bundle 'https://github.com/vim-scripts/matchit.zip'
+Bundle 'https://github.com/csscomb/vim-csscomb'
+Bundle 'https://github.com/mkitt/browser-refresh.vim'
+Bundle 'https://github.com/scrooloose/nerdtree'
+Bundle 'https://github.com/scrooloose/nerdcommenter'
+Bundle 'https://github.com/SirVer/ultisnips'
+Bundle 'https://github.com/mattn/emmet-vim'
+Bundle 'https://github.com/shemerey/vim-peepopen'
 
-set wrap
+" " Snipmate:
+" " Bundle 'https://github.com/msanders/snipmate.vim'
+" Bundle "MarcWeber/vim-addon-mw-utils"
+" Bundle "tomtom/tlib_vim"
+" Bundle "garbas/vim-snipmate"
+" " Optional:
+" Bundle "honza/vim-snippets"
+
+set nowrap
 set number
 set linebreak
 set formatoptions=l
@@ -35,19 +42,24 @@ set softtabstop=4
 set autoindent
 set showcmd
 set hlsearch
+
 syntax on
 colorscheme twilight
 execute pathogen#infect()
-
 map <C-a> :NERDTreeToggle<CR>
 map <C-c> :CSScomb<CR>
 map <silent><leader>r :RRB<CR>
+map <silent><leader>w :set wrap!<CR>
 noremap! <silent><leader><tab> <c-x><c-o>
 noremap! <C-f> <Right>
 noremap! <C-b> <Left>
 " Meta+1-0 jumps to tab 1-10, Shift+Meta+1-0 jumps to tab 11-20:
 let s:windowmapnr = 0
 let s:wins='1234567890!@#$%^&*()'
+let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
 while (s:windowmapnr < strlen(s:wins))
     exe 'noremap <silent> <D-' . s:wins[s:windowmapnr] . '> ' . (s:windowmapnr + 1) . 'gt'
     exe 'inoremap <silent> <D-' . s:wins[s:windowmapnr] . '> <C-O>' . (s:windowmapnr + 1) . 'gt'
@@ -78,3 +90,4 @@ autocmd BufReadPost *
 autocmd! bufwritepost .vimrc source ~/.vimrc
 map <silent> <leader>ss :source ~/.vimrc<cr>
 map <silent> <leader>ee :e ~/.vimrc<cr>   
+
