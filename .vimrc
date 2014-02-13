@@ -19,20 +19,20 @@ Bundle 'https://github.com/scrooloose/nerdcommenter'
 Bundle 'https://github.com/SirVer/ultisnips'
 Bundle 'https://github.com/mattn/emmet-vim'
 Bundle 'https://github.com/shemerey/vim-peepopen'
+Bundle 'https://github.com/vim-scripts/bufexplorer.zip'
+Bundle 'https://github.com/vim-scripts/taglist-plus'
 
-" " Snipmate:
-" " Bundle 'https://github.com/msanders/snipmate.vim'
+" Snipmate:
 " Bundle "MarcWeber/vim-addon-mw-utils"
 " Bundle "tomtom/tlib_vim"
 " Bundle "garbas/vim-snipmate"
-" " Optional:
+" Optional:
 " Bundle "honza/vim-snippets"
 
 set nowrap
 set number
 set linebreak
 set formatoptions=l
-set showbreak=\ \ \ \ \ \ \ \ \ \ \ \ 
 set guifont=Monaco:h15
 set autoindent
 set expandtab
@@ -42,13 +42,15 @@ set softtabstop=4
 set autoindent
 set showcmd
 set hlsearch
+set showbreak=\ \ \ \ \ \ \ \ \ \ \ \ 
 
 syntax on
 colorscheme twilight
 execute pathogen#infect()
 map <C-a> :NERDTreeToggle<CR>
-map <C-c> :CSScomb<CR>
+map <silent><leader>c :CSScomb<CR>
 map <silent><leader>r :RRB<CR>
+map <silent><leader>t <leader>be<Down>t
 map <silent><leader>w :set wrap!<CR>
 noremap! <silent><leader><tab> <c-x><c-o>
 noremap! <C-f> <Right>
@@ -90,4 +92,3 @@ autocmd BufReadPost *
 autocmd! bufwritepost .vimrc source ~/.vimrc
 map <silent> <leader>ss :source ~/.vimrc<cr>
 map <silent> <leader>ee :e ~/.vimrc<cr>   
-
