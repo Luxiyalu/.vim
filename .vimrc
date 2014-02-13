@@ -20,7 +20,6 @@ Bundle 'https://github.com/SirVer/ultisnips'
 Bundle 'https://github.com/mattn/emmet-vim'
 Bundle 'https://github.com/shemerey/vim-peepopen'
 Bundle 'https://github.com/vim-scripts/bufexplorer.zip'
-Bundle 'https://github.com/vim-scripts/taglist-plus'
 
 " Snipmate:
 " Bundle "MarcWeber/vim-addon-mw-utils"
