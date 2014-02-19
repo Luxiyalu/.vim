@@ -20,6 +20,7 @@ Bundle 'https://github.com/shemerey/vim-peepopen'
 Bundle 'https://github.com/vim-scripts/bufexplorer.zip'
 Bundle 'https://github.com/c9s/gsession.vim'
 Bundle 'https://github.com/vim-scripts/quicksession.vim'
+Bundle 'https://github.com/vim-scripts/ShowMarks7'
 
 " set
 set nowrap
@@ -38,7 +39,7 @@ set showbreak=\ \ \ \ \ \ \ \ \ \ \ \
 
 "mapkeys
 map <C-a> :NERDTreeToggle<CR>
-map <silent><leader>c :CSScomb<CR>
+map <silent><leader>cv :CSScomb<CR>
 map <silent><leader>r :RRB<CR>
 map <silent><leader>t <leader>be<Down>t
 map <silent><leader>w :set wrap!<CR>
@@ -63,6 +64,7 @@ while (s:windowmapnr < strlen(s:wins))
     let s:windowmapnr += 1
 endwhile
 unlet s:windowmapnr s:wins
+let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 syntax on
 colorscheme twilight
