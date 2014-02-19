@@ -6,8 +6,6 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
-
-" original repos on GitHub
 Bundle 'https://github.com/Valloric/YouCompleteMe.git'
 Bundle 'https://github.com/jiangmiao/auto-pairs'
 Bundle 'https://github.com/tpope/vim-surround'
@@ -20,20 +18,15 @@ Bundle 'https://github.com/SirVer/ultisnips'
 Bundle 'https://github.com/mattn/emmet-vim'
 Bundle 'https://github.com/shemerey/vim-peepopen'
 Bundle 'https://github.com/vim-scripts/bufexplorer.zip'
+Bundle 'https://github.com/c9s/gsession.vim'
+Bundle 'https://github.com/vim-scripts/quicksession.vim'
 
-" Snipmate:
-" Bundle "MarcWeber/vim-addon-mw-utils"
-" Bundle "tomtom/tlib_vim"
-" Bundle "garbas/vim-snipmate"
-" Optional:
-" Bundle "honza/vim-snippets"
-
+" set
 set nowrap
 set number
 set linebreak
 set formatoptions=l
 set guifont=Monaco:h15
-set autoindent
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -43,22 +36,23 @@ set showcmd
 set hlsearch
 set showbreak=\ \ \ \ \ \ \ \ \ \ \ \ 
 
-syntax on
-colorscheme twilight
-execute pathogen#infect()
+"mapkeys
 map <C-a> :NERDTreeToggle<CR>
 map <silent><leader>c :CSScomb<CR>
 map <silent><leader>r :RRB<CR>
 map <silent><leader>t <leader>be<Down>t
 map <silent><leader>w :set wrap!<CR>
-noremap! <silent><leader><tab> <c-x><c-o>
+map <silent><leader>ee :e ~/.vimrc<cr>
+map <silent><leader>oo :exe 'silent !open .'<CR>
 noremap! <C-f> <Right>
 noremap! <C-b> <Left>
-" Meta+1-0 jumps to tab 1-10, Shift+Meta+1-0 jumps to tab 11-20:
-let s:windowmapnr = 0
-let s:wins='1234567890!@#$%^&*()'
+
+" auto complete
 let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
+" tabs navigation
+let s:windowmapnr = 0
+let s:wins='1234567890!@#$%^&*()'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 while (s:windowmapnr < strlen(s:wins))
@@ -70,6 +64,9 @@ while (s:windowmapnr < strlen(s:wins))
 endwhile
 unlet s:windowmapnr s:wins
 
+syntax on
+colorscheme twilight
+execute pathogen#infect()
 filetype plugin indent on
 au FileType php setl ofu=phpcomplete#CompletePHP
 au FileType ruby,eruby setl ofu=rubycomplete#Complete
@@ -87,7 +84,3 @@ autocmd BufReadPost *
   \   exe "normal! g`\"" |
   \ endif
 
-" 配置文件.vimrc更改后自动重新载入使设置生效
-autocmd! bufwritepost .vimrc source ~/.vimrc
-map <silent> <leader>ss :source ~/.vimrc<cr>
-map <silent> <leader>ee :e ~/.vimrc<cr>   
